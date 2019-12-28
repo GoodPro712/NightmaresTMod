@@ -1,8 +1,9 @@
 using Microsoft.Xna.Framework;
+using NightmaresTMod.Placeables.Blocks.Ores;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Tiles.Ores
+namespace NightmaresTMod.Tiles.Ores
 {
 	public class PyroniumOreTile : ModTile
 	{
@@ -12,7 +13,7 @@ namespace NightmaresMod.Tiles.Ores
 			Main.tileMergeDirt[Type] = true;
 			Main.tileLighted[Type] = true;
 			Main.tileBlockLight[Type] = true;
-			drop = mod.ItemType("PyroniumOre");
+			drop = ModContent.ItemType<PyroniumOre>();
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("PyroniumOre");
 			AddMapEntry(new Color(255, 100, 0), name);

@@ -1,7 +1,9 @@
+using NightmaresTMod.Materials.Bars;
+using NightmaresTMod.Projectiles;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Weapons.Melee
+namespace NightmaresTMod.Weapons.Melee
 {
 	public class Bloodbath : ModItem
 	{
@@ -27,7 +29,7 @@ namespace NightmaresMod.Items.Weapons.Melee
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 			item.scale = 2f;
-			item.shoot = mod.ProjectileType("BloodbathProjectile");
+			item.shoot = ModContent.ProjectileType<BloodbathProjectile>();
 			item.noUseGraphic = true;
 			item.channel = true;
 			item.noMelee = true;
@@ -37,7 +39,7 @@ namespace NightmaresMod.Items.Weapons.Melee
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.CrimtaneBar, 13);
-			recipe.AddIngredient(mod.ItemType("NightmariumBar"), 1);
+			recipe.AddIngredient(ModContent.ItemType<NightmariumBar>(), 1);
 			recipe.AddTile(412);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

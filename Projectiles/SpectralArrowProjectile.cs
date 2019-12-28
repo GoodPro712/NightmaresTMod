@@ -1,6 +1,6 @@
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Projectiles
+namespace NightmaresTMod.Projectiles
 {
 	public class SpectralArrowProjectile : ModProjectile
 	{
@@ -24,17 +24,5 @@ namespace NightmaresMod.Projectiles
 			projectile.scale = 1f;
 			projectile.arrow = true;
 		}
-
-		//When projectile hits the ground, drop the item version
-		//Fix maybe?
-		/*
-        public override void Kill(int timeLeft)
-        {
-            if(projectile.owner == Main.myPlayer)
-            {
-                int item = Main.rand.NextBool(5) ? Item.NewItem[projectile.getRect[mod.ItemType("SpectralArrow")]] : 0;
-            }
-        }
-        */
 	}
 }

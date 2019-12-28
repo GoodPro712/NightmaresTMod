@@ -1,13 +1,14 @@
+using NightmaresTMod.Placeables.Blocks.Ores;
+using NightmaresTMod.Tiles.Bars;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Materials.Bars
+namespace NightmaresTMod.Materials.Bars
 {
 	public class RedtideBar : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Redtide Bar");
 			Tooltip.SetDefault("'The bar form of the earliest ore you can obtain'");
 		}
 
@@ -24,13 +25,13 @@ namespace NightmaresMod.Items.Materials.Bars
 			item.autoReuse = true; // Do you want to torture people with clicking? Set to false
 			item.consumable = true; // Will consume the item when placed.
 			item.maxStack = 999; // The maximum number you can have of this item.
-			item.createTile = mod.TileType("RedtideBarTile");
+			item.createTile = ModContent.TileType<RedtideBarTile>();
 		}
 
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("RedtideOre"), 2);
+			recipe.AddIngredient(ModContent.ItemType<RedtideOre>(), 2);
 			recipe.AddTile(412);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

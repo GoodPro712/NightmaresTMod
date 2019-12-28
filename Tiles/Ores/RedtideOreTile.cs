@@ -1,8 +1,9 @@
 using Microsoft.Xna.Framework;
+using NightmaresTMod.Placeables.Blocks.Ores;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Tiles.Ores
+namespace NightmaresTMod.Tiles.Ores
 {
 	public class RedtideOreTile : ModTile
 	{
@@ -12,7 +13,7 @@ namespace NightmaresMod.Tiles.Ores
 			Main.tileMergeDirt[Type] = true;
 			Main.tileLighted[Type] = true;
 			Main.tileBlockLight[Type] = true;
-			drop = mod.ItemType("RedtideOre");
+			drop = ModContent.ItemType<RedtideOre>();
 			minPick = 50;
 
 			ModTranslation name = CreateMapEntryName();

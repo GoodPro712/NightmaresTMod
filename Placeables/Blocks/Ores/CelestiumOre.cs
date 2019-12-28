@@ -1,7 +1,8 @@
+using NightmaresTMod.Tiles.Ores;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Placeables.Blocks.Ores
+namespace NightmaresTMod.Placeables.Blocks.Ores
 {
 	public class CelestiumOre : ModItem
 	{
@@ -24,7 +25,7 @@ namespace NightmaresMod.Items.Placeables.Blocks.Ores
 			item.autoReuse = true; // Do you want to torture people with clicking? Set to false
 			item.consumable = true; // Will consume the item when placed.
 			item.maxStack = 999; // The maximum number you can have of this item.
-			item.createTile = mod.TileType("CelestiumOreTile");
+			item.createTile = ModContent.TileType<CelestiumOreTile>();
 		}
 	}
 }

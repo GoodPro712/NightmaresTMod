@@ -1,3 +1,4 @@
+using NightmaresTMod.Tiles.Ores;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Generation;
@@ -5,36 +6,11 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.World.Generation;
 
-namespace NightmaresMod
+namespace NightmaresTMod
 {
-	public class NightmareWorld : ModWorld
+	public class NWorld : ModWorld
 	{
-		Nightmare's-Temp-Stuff
-        /*public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
-
-        public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
- master
-        {
-            int genIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
-            if (genIndex == -1)
-            {
-                return;
-            }
-            tasks.Insert(genIndex + 1, new PassLegacy("Nightmare Biome", delegate (GenerationProgress progress)
-            {
-                progress.Message = "Nightmare-ing the world"; //generation message
-                for (int i = 0; i < Main.maxTilesX / 10000000000; i++)
-                {
-                    int X = WorldGen.genRand.Next(1, Main.maxTilesX - 300);
-                    int Y = WorldGen.genRand.Next((int)WorldGen.rockLayerHigh - 100, Main.maxTilesY - 200);
-                    int TileType = 30;     //This is the tile you want to use for the biome(what it's made out of)
-                    WorldGen.TileRunner(X, Y, 500, WorldGen.genRand.Next(2000, 2500), TileType, false, 0f, 0f, true, true);
-                }
-            }));
- Nightmare's-Temp-Stuff
-        }*/
-
-        public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
+		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
 		{
 			// Because world generation is like layering several images ontop of each other, we need to do some steps between the original world generation steps.
 
@@ -77,7 +53,7 @@ namespace NightmaresMod
 
 			// Ores are quite simple, we simply use a for loop and the WorldGen.TileRunner to place splotches of the specified Tile in the world.
 			// "6E-05" is "scientific notation". It simply means 0.00006 but in some ways is easier to read.
-			for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 6E-04); k++)
+			for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 6E-04); k++)
 			{
 				// The inside of this for loop corresponds to one single splotch of our Ore.
 				// First, we randomly choose any coordinate in the world by choosing a random x and y value.
@@ -88,7 +64,7 @@ namespace NightmaresMod
 				Tile tile = Framing.GetTileSafely(x, y); // Alternately, we could check the tile already present in the coordinate we are interested. Wrapping WorldGen.TileRunner in the following condition would make the ore only generate in Snow.
 				if (tile.active() && tile.type == TileID.SnowBlock)
 				{
-					WorldGen.TileRunner(x, y, (double)WorldGen.genRand.Next(3, 4), WorldGen.genRand.Next(2, 100), mod.TileType("FaroziteOreTile"), false, 0f, 0f, false, true);
+					WorldGen.TileRunner(x, y, WorldGen.genRand.Next(3, 4), WorldGen.genRand.Next(2, 100), ModContent.TileType<FaroziteOreTile>(), false, 0f, 0f, false, true);
 				}
 			}
 		}
@@ -100,7 +76,7 @@ namespace NightmaresMod
 
 			// Ores are quite simple, we simply use a for loop and the WorldGen.TileRunner to place splotches of the specified Tile in the world.
 			// "6E-05" is "scientific notation". It simply means 0.00006 but in some ways is easier to read.
-			for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 6E-04); k++)
+			for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 6E-04); k++)
 			{
 				// The inside of this for loop corresponds to one single splotch of our Ore.
 				// First, we randomly choose any coordinate in the world by choosing a random x and y value.
@@ -111,7 +87,7 @@ namespace NightmaresMod
 				Tile tile = Framing.GetTileSafely(x, y); // Alternately, we could check the tile already present in the coordinate we are interested. Wrapping WorldGen.TileRunner in the following condition would make the ore only generate in Snow.
 				if (tile.active() && tile.type == TileID.Sand)
 				{
-					WorldGen.TileRunner(x, y, (double)WorldGen.genRand.Next(1, 2), WorldGen.genRand.Next(2, 3), mod.TileType("RedtideOreTile"), false, 0f, 0f, false, true);
+					WorldGen.TileRunner(x, y, WorldGen.genRand.Next(1, 2), WorldGen.genRand.Next(2, 3), ModContent.TileType<RedtideOreTile>(), false, 0f, 0f, false, true);
 				}
 			}
 		}
@@ -123,7 +99,7 @@ namespace NightmaresMod
 
 			// Ores are quite simple, we simply use a for loop and the WorldGen.TileRunner to place splotches of the specified Tile in the world.
 			// "6E-05" is "scientific notation". It simply means 0.00006 but in some ways is easier to read.
-			for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 3E-05); k++)
+			for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 3E-05); k++)
 			{
 				// The inside of this for loop corresponds to one single splotch of our Ore.
 				// First, we randomly choose any coordinate in the world by choosing a random x and y value.
@@ -132,12 +108,8 @@ namespace NightmaresMod
 
 				// Then, we call WorldGen.TileRunner with random "strength" and random "steps", as well as the Tile we wish to place. Feel free to experiment with strength and step to see the shape they generate.
 				Tile tile = Framing.GetTileSafely(x, y); // Alternately, we could check the tile already present in the coordinate we are interested. Wrapping WorldGen.TileRunner in the following condition would make the ore only generate in Snow.
-				WorldGen.TileRunner(x, y, (double)WorldGen.genRand.Next(3, 4), WorldGen.genRand.Next(999, 1000), mod.TileType("PyroniumOreTile"), false, 0f, 0f, false, true);
+				WorldGen.TileRunner(x, y, WorldGen.genRand.Next(3, 4), WorldGen.genRand.Next(999, 1000), ModContent.TileType<PyroniumOreTile>(), false, 0f, 0f, false, true);
 			}
 		}
 	}
 }
-        }
-    }
-}
- master

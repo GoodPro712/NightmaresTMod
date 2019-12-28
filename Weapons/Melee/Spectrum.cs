@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Weapons.Melee
+namespace NightmaresTMod.Weapons.Melee
 {
 	public class Spectrum : ModItem
 	{
@@ -27,7 +27,7 @@ namespace NightmaresMod.Items.Weapons.Melee
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 			item.scale = 1.3f;
-			item.shoot = mod.ProjectileType("SpectrumRainbowProjectile");
+			item.shoot = ModContent.ProjectileType<Projectiles.SpectrumRainbowProjectile>();
 			item.shootSpeed = 50f;
 		}
 

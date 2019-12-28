@@ -1,9 +1,12 @@
 using Microsoft.Xna.Framework;
+using NightmaresTMod.Dusts;
+using NightmaresTMod.Materials.Bars;
+using NightmaresTMod.Projectiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Weapons.Melee
+namespace NightmaresTMod.Weapons.Melee
 {
 	public class TheNightmare : ModItem
 	{
@@ -30,7 +33,7 @@ namespace NightmaresMod.Items.Weapons.Melee
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 			item.scale = 2f;
-			item.shoot = mod.ProjectileType("NightmareProjectile");
+			item.shoot = ModContent.ProjectileType<NightmareProjectile>();
 			item.shootSpeed = 30f;
 		}
 
@@ -38,7 +41,7 @@ namespace NightmaresMod.Items.Weapons.Melee
 		{
 			if (Main.rand.Next(3) == 0)
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, mod.DustType("NightmariumDust"));
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ModContent.DustType<NightmariumDust>());
 			}
 		}
 
@@ -52,7 +55,7 @@ namespace NightmaresMod.Items.Weapons.Melee
 			//recipe.AddIngredient(ItemID.Meowmere, 1);
 			//recipe.AddIngredient(ItemID.StarWrath, 1);
 			//recipe.AddIngredient(ItemID.DD2SquireBetsySword, 1);
-			recipe.AddIngredient(mod.ItemType("NightmariumBar"), 13);
+			recipe.AddIngredient(ModContent.ItemType<NightmariumBar>(), 13);
 			recipe.AddTile(412);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
@@ -67,7 +70,7 @@ namespace NightmaresMod.Items.Weapons.Melee
 																												// If you want to randomize the speed to stagger the projectiles
 																												// float scale = 1f - (Main.rand.NextFloat() * .3f);
 																												// perturbedSpeed = perturbedSpeed * scale;
-				Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("NightmareBolt"), damage = 700, knockBack, player.whoAmI);
+				Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<NightmareBolt>(), damage = 700, knockBack, player.whoAmI);
 
 				// Here we manually spawn the 2nd projectile, manually specifying the projectile type that we wish to shoot.
 				Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);

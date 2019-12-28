@@ -1,13 +1,12 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Placeables.Blocks.Woods
+namespace NightmaresTMod.Placeables.Blocks.Woods
 {
 	public class Pyrowood : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Pyrowood");
 			Tooltip.SetDefault("'The wood of fire trees'");
 		}
 
@@ -24,7 +23,6 @@ namespace NightmaresMod.Items.Placeables.Blocks.Woods
 			item.autoReuse = true; // Do you want to torture people with clicking? Set to false
 			item.consumable = true; // Will consume the item when placed.
 			item.maxStack = 999; // The maximum number you can have of this item.
-			item.createTile = mod.TileType("PyrowoodTile");
 		}
 	}
 }

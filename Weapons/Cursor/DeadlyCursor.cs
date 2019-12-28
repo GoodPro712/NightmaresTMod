@@ -1,7 +1,9 @@
+using NightmaresTMod.Materials.Bars;
+using NightmaresTMod.Projectiles;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Weapons.Cursor
+namespace NightmaresTMod.Weapons.Cursor
 {
 	public class DeadlyCursor : ModItem
 	{
@@ -27,7 +29,7 @@ namespace NightmaresMod.Items.Weapons.Cursor
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 			item.scale = 2f;
-			item.shoot = mod.ProjectileType("DeadlyCursorProjectile");
+			item.shoot = ModContent.ProjectileType<DeadlyCursorProjectile>();
 			item.noUseGraphic = true;
 			item.channel = true;
 			item.noMelee = true;
@@ -36,7 +38,7 @@ namespace NightmaresMod.Items.Weapons.Cursor
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("NightmariumBar"), 23);
+			recipe.AddIngredient(ModContent.ItemType<NightmariumBar>(), 23);
 			recipe.AddTile(412);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

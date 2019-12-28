@@ -1,16 +1,16 @@
+using NightmaresTMod.Materials.Bars;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Armor.CelestiumArmor
+namespace NightmaresTMod.Armor.CelestiumArmor
 {
 	[AutoloadEquip(EquipType.Head)]
 	public class CelestiumHelm : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Celestium Helm");
-			Tooltip.SetDefault("'Something'");
+			Tooltip.SetDefault("'no more hott x2'");
 		}
 
 		public override void SetDefaults()
@@ -30,7 +30,7 @@ namespace NightmaresMod.Items.Armor.CelestiumArmor
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("CelestiumBar"), 7);
+			recipe.AddIngredient(ModContent.ItemType<CelestiumBar>(), 7);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

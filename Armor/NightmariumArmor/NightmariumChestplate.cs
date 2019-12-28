@@ -1,15 +1,15 @@
+using NightmaresTMod.Materials.Bars;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Armor.NightmariumArmor
+namespace NightmaresTMod.Armor.NightmariumArmor
 {
 	[AutoloadEquip(EquipType.Body)]
 	public class NightmariumChestplate : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Nightmarium Chestplate");
 			Tooltip.SetDefault("'Protects the wearer against all'");
 		}
 
@@ -30,7 +30,7 @@ namespace NightmaresMod.Items.Armor.NightmariumArmor
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("NightmariumBar"), 22);
+			recipe.AddIngredient(ModContent.ItemType<NightmariumBar>(), 22);
 			recipe.AddTile(412);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Projectiles
+namespace NightmaresTMod.Projectiles
 {
 	public class CoronaProjectile : ModProjectile
 	{
@@ -44,14 +44,14 @@ namespace NightmaresMod.Projectiles
 
 			if (Main.rand.Next(1) == 0) //New dust particles
 			{
-				Dust dust = Dust.NewDustDirect(projectile.position, projectile.height, projectile.width, mod.DustType<Dusts.CoronaDust>(),
+				Dust dust = Dust.NewDustDirect(projectile.position, projectile.height, projectile.width, ModContent.DustType<Dusts.CoronaDust>(),
 					projectile.velocity.X * .5f, projectile.velocity.Y * .2f, 200, Scale: 1.6f);
 				dust.velocity += projectile.velocity * 0.1f;
 				dust.velocity *= 0.1f;
 			}
 			if (Main.rand.Next(2) == 0)
 			{
-				Dust dust = Dust.NewDustDirect(projectile.position, projectile.height, projectile.width, mod.DustType<Dusts.CoronaDust>(),
+				Dust dust = Dust.NewDustDirect(projectile.position, projectile.height, projectile.width, ModContent.DustType<Dusts.CoronaDust>(),
 					0, 0, 254, Scale: 0.3f);
 				dust.velocity += projectile.velocity * 0.1f;
 				dust.velocity *= 0.1f;

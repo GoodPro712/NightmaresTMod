@@ -1,9 +1,11 @@
 using Microsoft.Xna.Framework;
+using NightmaresTMod.Materials.Bars;
+using NightmaresTMod.Projectiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Weapons.Ranged
+namespace NightmaresTMod.Weapons.Ranged
 {
 	public class Nightwind : ModItem
 	{
@@ -35,7 +37,7 @@ namespace NightmaresMod.Items.Weapons.Ranged
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("NightmariumBar"), 12);
+			recipe.AddIngredient(ModContent.ItemType<NightmariumBar>(), 12);
 			recipe.AddTile(412);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
@@ -46,7 +48,7 @@ namespace NightmaresMod.Items.Weapons.Ranged
         {
             if (type == AmmoID.Arrow) // or ProjectileID.WoodenArrowFriendly
             {
-                type = mod.ProjectileType("NightmareArrow"); // or ProjectileID.FireArrow;
+                type = ModContent.ProjectileType<NightmareArrow>(); // or ProjectileID.FireArrow;
             }
             return true; // return true to allow tmodloader to call Projectile.NewProjectile as normal
         }
@@ -75,7 +77,7 @@ namespace NightmaresMod.Items.Weapons.Ranged
 			for (int i = 0; i < numberProjectiles; i++)
 			{
 				Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f; // Watch out for dividing by 0 if there is only 1 projectile.
-				Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("NightmareArrow"), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<NightmareArrow>(), damage, knockBack, player.whoAmI);
 			}
 			return false;
 		}

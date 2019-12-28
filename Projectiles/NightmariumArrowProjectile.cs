@@ -1,8 +1,9 @@
 using Microsoft.Xna.Framework;
+using NightmaresTMod.Dusts;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Projectiles
+namespace NightmaresTMod.Projectiles
 {
 	public class NightmariumArrowProjectile : ModProjectile
 	{
@@ -27,24 +28,13 @@ namespace NightmaresMod.Projectiles
 			projectile.alpha = 50;
 		}
 
-		//When projectile hits the ground, drop the item version
-		//Fix maybe?
-		/*
-        public override void Kill(int timeLeft)
-        {
-            if(projectile.owner == Main.myPlayer)
-            {
-                int item = Main.rand.NextBool(5) ? Item.NewItem[projectile.getRect[mod.ItemType("SpectralArrow")]] : 0;
-            }
-        }
-        */
 
 		public override void AI()
 		{
 			projectile.velocity.Y += projectile.ai[1];
 			if (Main.rand.NextBool(3))
 			{
-				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("NightmariumDust"), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, ModContent.DustType<NightmariumDust>(), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
 			}
 
 			Lighting.AddLight(projectile.Center, 1.2f, .2f, 2f);
@@ -60,7 +50,7 @@ namespace NightmaresMod.Projectiles
 
 			for (int i = 0; i < 20; i++)
 			{
-				Dust dust = Dust.NewDustDirect(usePos, projectile.width, projectile.height, mod.DustType("NightmariumDust")); //Create new dust
+				Dust dust = Dust.NewDustDirect(usePos, projectile.width, projectile.height, ModContent.DustType<NightmariumDust>()); //Create new dust
 				dust.position = (dust.position + projectile.Center) / 2f;
 				dust.velocity += rotVector * 2f;
 				dust.velocity *= 2f;

@@ -1,7 +1,8 @@
+using NightmaresTMod.Projectiles;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Weapons.Ranged
+namespace NightmaresTMod.Weapons.Ranged
 {
 	public class Baseball : ModItem
 	{
@@ -22,7 +23,7 @@ namespace NightmaresMod.Items.Weapons.Ranged
 			item.rare = 1; //Red rarity
 			item.UseSound = SoundID.Item7;
 			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("BaseballProjectile");
+			item.shoot = ModContent.ProjectileType<BaseballProjectile>();
 			item.shootSpeed = 25f;
 			item.noUseGraphic = true;
 			item.scale = .5f;

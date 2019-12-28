@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Tiles.Bricks
+namespace NightmaresTMod.Tiles.Bricks
 {
 	public class CelestiumBrickTile : ModTile
 	{
@@ -13,7 +13,6 @@ namespace NightmaresMod.Tiles.Bricks
 			Main.tileMergeDirt[Type] = false;
 			Main.tileLighted[Type] = true;
 			Main.tileBlockLight[Type] = true;
-			drop = mod.ItemType("CelestiumBrick");
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Celestium Brick");
 			AddMapEntry(new Color(150, 200, 255), name);

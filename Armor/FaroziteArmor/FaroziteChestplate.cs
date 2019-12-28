@@ -1,15 +1,15 @@
+using NightmaresTMod.Materials.Bars;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Armor.FaroziteArmor
+namespace NightmaresTMod.Armor.FaroziteArmor
 {
 	[AutoloadEquip(EquipType.Body)]
 	public class FaroziteChestplate : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Farozite Chestplate");
 			Tooltip.SetDefault("'Protects the wearer against extreme temperatures'");
 		}
 
@@ -37,7 +37,7 @@ namespace NightmaresMod.Items.Armor.FaroziteArmor
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("FaroziteBar"), 22);
+			recipe.AddIngredient(ModContent.ItemType<FaroziteBar>(), 22);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

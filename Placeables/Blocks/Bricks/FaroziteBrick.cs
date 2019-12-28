@@ -1,13 +1,14 @@
+using NightmaresTMod.Materials.Bars;
+using NightmaresTMod.Tiles.Bricks;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Placeables.Blocks.Bricks
+namespace NightmaresTMod.Placeables.Blocks.Bricks
 {
 	public class FaroziteBrick : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Farozite Brick");
 			Tooltip.SetDefault("'A block so cold, it burns to touch'");
 		}
 
@@ -24,13 +25,13 @@ namespace NightmaresMod.Items.Placeables.Blocks.Bricks
 			item.autoReuse = true; // Do you want to torture people with clicking? Set to false
 			item.consumable = true; // Will consume the item when placed.
 			item.maxStack = 999; // The maximum number you can have of this item.
-			item.createTile = mod.TileType("FaroziteBrickTile");
+			item.createTile = ModContent.TileType<FaroziteBrickTile>();
 		}
 
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("FaroziteBar"), 10);
+			recipe.AddIngredient(ModContent.ItemType<FaroziteBar>(), 10);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this, 25);
 			recipe.AddRecipe();

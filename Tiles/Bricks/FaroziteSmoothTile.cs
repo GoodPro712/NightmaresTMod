@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Tiles.Bricks
+namespace NightmaresTMod.Tiles.Bricks
 {
 	public class FaroziteSmoothTile : ModTile
 	{
@@ -13,7 +13,7 @@ namespace NightmaresMod.Tiles.Bricks
 			Main.tileMergeDirt[Type] = false;
 			Main.tileLighted[Type] = true;
 			Main.tileBlockLight[Type] = true;
-			drop = mod.ItemType("FaroziteSmooth");
+			//drop = ModContent.ItemType<FaroziteSmooth>();
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Farozite Smooth");
 			AddMapEntry(new Color(125, 175, 225), name);

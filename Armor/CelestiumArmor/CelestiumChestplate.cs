@@ -1,15 +1,15 @@
+using NightmaresTMod.Materials.Bars;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Armor.CelestiumArmor
+namespace NightmaresTMod.Armor.CelestiumArmor
 {
 	[AutoloadEquip(EquipType.Body)]
 	public class CelestiumChestplate : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Celestium Chestplate");
 			Tooltip.SetDefault("'Guards against celestial powers'");
 		}
 
@@ -17,7 +17,7 @@ namespace NightmaresMod.Items.Armor.CelestiumArmor
 		{
 			item.defense = 26;
 			item.rare = 9;
-			item.value = 12000000; //12 platinum
+			item.value = 12000000; //12 plat
 			item.width = 18;
 			item.height = 18;
 		}
@@ -30,7 +30,7 @@ namespace NightmaresMod.Items.Armor.CelestiumArmor
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("CelestiumBar"), 7);
+			recipe.AddIngredient(ModContent.ItemType<CelestiumBar>(), 7);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

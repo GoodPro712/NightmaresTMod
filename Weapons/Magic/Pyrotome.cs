@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Weapons.Magic
+namespace NightmaresTMod.Weapons.Magic
 {
 	public class Pyrotome : ModItem
 	{

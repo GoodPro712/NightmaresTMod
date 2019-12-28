@@ -1,13 +1,13 @@
+using NightmaresTMod.Projectiles;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Ammo.Arrows
+namespace NightmaresTMod.Ammo.Arrows
 {
 	public class SpectralArrow : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Spectral Arrow");
 			Tooltip.SetDefault("'Brings the power of light upon your foes'");
 		}
 
@@ -24,7 +24,7 @@ namespace NightmaresMod.Items.Ammo.Arrows
 			item.scale = 1f;
 			item.maxStack = 999;
 			item.ammo = AmmoID.Arrow;
-			item.shoot = mod.ProjectileType("SpectralArrowProjectile");
+			item.shoot = ModContent.ProjectileType<SpectralArrowProjectile>();
 			item.shootSpeed = 8.5f;
 			item.consumable = true;
 		}

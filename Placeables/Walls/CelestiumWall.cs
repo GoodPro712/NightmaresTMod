@@ -1,6 +1,7 @@
+using NightmaresTMod.Tiles.Walls;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Placeables.Walls
+namespace NightmaresTMod.Placeables.Walls
 {
 	public class CelestiumWall : ModItem
 	{
@@ -20,14 +21,7 @@ namespace NightmaresMod.Items.Placeables.Walls
 			item.useTime = 7;
 			item.useStyle = 1;
 			item.consumable = true;
-			item.createWall = mod.WallType("CelestiumWallTile");
+			item.createWall = ModContent.WallType<CelestiumWallTile>();
 		}
-
-		/*public override void AddRecipes() {
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("ExampleBlock"));
-			recipe.SetResult(this, 4);
-			recipe.AddRecipe();
-		}*/
 	}
 }

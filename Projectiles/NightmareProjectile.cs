@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Projectiles
+namespace NightmaresTMod.Projectiles
 {
 	public class NightmareProjectile : ModProjectile
 	{

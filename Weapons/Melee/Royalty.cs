@@ -1,7 +1,8 @@
+using NightmaresTMod.Materials.Bars;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Weapons.Melee
+namespace NightmaresTMod.Weapons.Melee
 {
 	public class Royalty : ModItem
 	{
@@ -32,7 +33,7 @@ namespace NightmaresMod.Items.Weapons.Melee
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("ReditdeBar"), 14);
+			recipe.AddIngredient(ModContent.ItemType<RedtideBar>(), 14);
 			recipe.AddIngredient(ItemID.IronBroadsword, 1);
 			recipe.AddTile(412);
 			recipe.SetResult(this);

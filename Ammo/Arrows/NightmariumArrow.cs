@@ -1,13 +1,14 @@
+using NightmaresTMod.Materials.Bars;
+using NightmaresTMod.Projectiles;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Ammo.Arrows
+namespace NightmaresTMod.Ammo.Arrows
 {
 	public class NightmariumArrow : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("NightmariumArrow");
 			Tooltip.SetDefault("'Rips your foes asunder'");
 		}
 
@@ -18,10 +19,10 @@ namespace NightmaresMod.Items.Ammo.Arrows
 			item.ranged = true;
 			item.knockBack = 5f;
 			item.value = 2000; //20 Silver
-			item.rare = 0; //Grey Rarity
+			item.rare = ItemRarityID.Gray;
 			item.maxStack = 999;
 			item.ammo = AmmoID.Arrow;
-			item.shoot = mod.ProjectileType("NightmariumArrowProjectile");
+			item.shoot = ModContent.ProjectileType<NightmariumArrowProjectile>();
 			item.shootSpeed = 20f;
 			item.consumable = true;
 		}
@@ -29,7 +30,7 @@ namespace NightmaresMod.Items.Ammo.Arrows
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("NightmariumBar"), 2);
+			recipe.AddIngredient(ModContent.ItemType<NightmariumBar>(), 2);
 			recipe.AddIngredient(ItemID.Wood, 3);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this, 9);

@@ -1,7 +1,8 @@
+using NightmaresTMod.Materials.Bars;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Tools
+namespace NightmaresTMod.Tools
 {
 	public class CelestiumPickaxe : ModItem
 	{
@@ -33,7 +34,7 @@ namespace NightmaresMod.Items.Tools
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("CelestiumBar"), 12);
+			recipe.AddIngredient(ModContent.ItemType<CelestiumBar>(), 12);
 			recipe.AddTile(412);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

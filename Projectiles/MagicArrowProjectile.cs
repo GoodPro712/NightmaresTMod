@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Projectiles
+namespace NightmaresTMod.Projectiles
 {
 	// Code adapted from the vanilla's magic missile.
 	public class MagicArrowProjectile : ModProjectile
@@ -37,7 +37,7 @@ namespace NightmaresMod.Projectiles
 			}
 
 			Vector2 dustPosition = projectile.Center + new Vector2(Main.rand.Next(-4, 5), Main.rand.Next(-4, 5));
-			Dust dust = Dust.NewDustPerfect(dustPosition, mod.DustType<Dusts.ArrowThingDust>(), null, 100, Color.Red, 0.8f);
+			Dust dust = Dust.NewDustPerfect(dustPosition, ModContent.DustType<Dusts.ArrowThingDust>(), null, 100, Color.Red, 0.8f);
 			dust.velocity *= 0.3f;
 			dust.noGravity = true;
 
@@ -142,10 +142,10 @@ namespace NightmaresMod.Projectiles
 			Main.PlaySound(SoundID.Item10, projectile.position);
 			for (int i = 0; i < 10; i++)
 			{
-				Dust dust = Dust.NewDustDirect(projectile.position - projectile.velocity, projectile.width, projectile.height, mod.DustType<Dusts.ArrowThingDust>(), 0, 0, 100, Color.Red, 0.8f);
+				Dust dust = Dust.NewDustDirect(projectile.position - projectile.velocity, projectile.width, projectile.height, ModContent.DustType<Dusts.ArrowThingDust>(), 0, 0, 100, Color.Red, 0.8f);
 				dust.noGravity = true;
 				dust.velocity *= 2f;
-				dust = Dust.NewDustDirect(projectile.position - projectile.velocity, projectile.width, projectile.height, mod.DustType<Dusts.ArrowThingDust2>(), 0f, 0f, 100, Color.Red, 0.5f);
+				dust = Dust.NewDustDirect(projectile.position - projectile.velocity, projectile.width, projectile.height, ModContent.DustType<Dusts.ArrowThingDust2>(), 0f, 0f, 100, Color.Red, 0.5f);
 			}
 		}
 

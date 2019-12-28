@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Dusts
+namespace NightmaresTMod.Dusts
 {
 	public class ArrowThingDust : ModDust
 	{

@@ -1,7 +1,9 @@
+using NightmaresTMod.Materials.Bars;
+using NightmaresTMod.Tiles.Bricks;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Placeables.Blocks.Bricks
+namespace NightmaresTMod.Placeables.Blocks.Bricks
 {
 	public class NightmariumBrick : ModItem
 	{
@@ -24,13 +26,13 @@ namespace NightmaresMod.Items.Placeables.Blocks.Bricks
 			item.autoReuse = true; // Do you want to torture people with clicking? Set to false
 			item.consumable = true; // Will consume the item when placed.
 			item.maxStack = 999; // The maximum number you can have of this item.
-			item.createTile = mod.TileType("NightmariumBrickTile");
+			item.createTile = ModContent.TileType<NightmariumBrickTile>();
 		}
 
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("NightmariumBar"), 10);
+			recipe.AddIngredient(ModContent.ItemType<NightmariumBar>(), 10);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this, 25);
 			recipe.AddRecipe();

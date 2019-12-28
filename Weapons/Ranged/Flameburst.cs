@@ -1,9 +1,10 @@
 using Microsoft.Xna.Framework;
+using NightmaresTMod.Materials.Bars;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Weapons.Ranged
+namespace NightmaresTMod.Weapons.Ranged
 {
 	public class Flameburst : ModItem
 	{
@@ -34,7 +35,7 @@ namespace NightmaresMod.Items.Weapons.Ranged
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("PyroniumBar"), 13);
+			recipe.AddIngredient(ModContent.ItemType<PyroniumBar>(), 13);
 			recipe.AddTile(412);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

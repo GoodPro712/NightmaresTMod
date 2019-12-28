@@ -1,6 +1,6 @@
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Projectiles
+namespace NightmaresTMod.Projectiles
 {
 	public class BloodbathProjectile : ModProjectile
 	{

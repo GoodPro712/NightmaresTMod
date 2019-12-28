@@ -1,8 +1,9 @@
 using Microsoft.Xna.Framework;
+using NightmaresTMod.Placeables.Blocks.Stones;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Tiles.Stones
+namespace NightmaresTMod.Tiles.Stones
 {
 	public class DalbrixTile : ModTile
 	{
@@ -12,7 +13,7 @@ namespace NightmaresMod.Tiles.Stones
 			Main.tileMergeDirt[Type] = true;
 			Main.tileLighted[Type] = true;
 			Main.tileBlockLight[Type] = true;
-			drop = mod.ItemType("Dalbrix");
+			drop = ModContent.ItemType<Dalbrix>();
 			minPick = 200;
 
 			ModTranslation name = CreateMapEntryName();

@@ -1,8 +1,10 @@
 using Microsoft.Xna.Framework;
+using NightmaresTMod.Dusts;
+using NightmaresTMod.Placeables.Blocks.Ores;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Tiles.Ores
+namespace NightmaresTMod.Tiles.Ores
 {
 	public class NightmariumOreTile : ModTile
 	{
@@ -12,9 +14,9 @@ namespace NightmaresMod.Tiles.Ores
 			Main.tileMergeDirt[Type] = true;
 			Main.tileLighted[Type] = true;
 			Main.tileBlockLight[Type] = true;
-			drop = mod.ItemType("NightmariumOre");
+			drop = ModContent.ItemType<NightmariumOre>();
 			minPick = 250;
-			dustType = mod.DustType("NightmariumDust");
+			dustType = ModContent.DustType<NightmariumDust>();
 
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Nightmarium Ore");

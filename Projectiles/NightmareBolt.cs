@@ -1,10 +1,11 @@
 using Microsoft.Xna.Framework;
+using NightmaresTMod.Dusts;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Projectiles
+namespace NightmaresTMod.Projectiles
 {
 	public class NightmareBolt : ModProjectile
 	{
@@ -70,7 +71,7 @@ namespace NightmaresMod.Projectiles
 			}
 			if (projectile.alpha <= 100)
 			{
-				int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("NightmariumDust"));
+				int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, ModContent.DustType<NightmariumDust>());
 				Main.dust[dust].velocity /= 10f;
 			}
 		}

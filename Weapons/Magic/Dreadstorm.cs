@@ -1,7 +1,8 @@
+using NightmaresTMod.Projectiles;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Weapons.Magic
+namespace NightmaresTMod.Weapons.Magic
 {
 	public class Dreadstorm : ModItem
 	{
@@ -27,7 +28,7 @@ namespace NightmaresMod.Items.Weapons.Magic
 			item.mana = 24; //Mana usage
 			item.shootSpeed = 15f;
 			item.noMelee = true; //Item itself does not deal damage
-			item.shoot = mod.ProjectileType("DreadstormCloud");
+			item.shoot = ModContent.ProjectileType<DreadstormCloud>();
 		}
 
 		public override void AddRecipes()

@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Weapons.Melee
+namespace NightmaresTMod.Weapons.Melee
 {
 	public class Laberd : ModItem
 	{

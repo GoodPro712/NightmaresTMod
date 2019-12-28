@@ -1,7 +1,8 @@
+using NightmaresTMod.Materials.Bars;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Weapons.Melee
+namespace NightmaresTMod.Weapons.Melee
 {
 	public class FaroziteBlade : ModItem
 	{
@@ -42,7 +43,7 @@ namespace NightmaresMod.Items.Weapons.Melee
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("FaroziteBar"), 13);
+			recipe.AddIngredient(ModContent.ItemType<FaroziteBar>(), 13);
 			recipe.AddTile(412);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

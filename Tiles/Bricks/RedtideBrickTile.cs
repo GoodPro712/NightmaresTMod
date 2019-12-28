@@ -1,9 +1,10 @@
 using Microsoft.Xna.Framework;
+using NightmaresTMod.Placeables.Blocks.Bricks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Tiles.Bricks
+namespace NightmaresTMod.Tiles.Bricks
 {
 	public class RedtideBrickTile : ModTile
 	{
@@ -13,7 +14,7 @@ namespace NightmaresMod.Tiles.Bricks
 			Main.tileMergeDirt[Type] = false;
 			Main.tileLighted[Type] = true;
 			Main.tileBlockLight[Type] = true;
-			drop = mod.ItemType("RedtideBrick");
+			drop = ModContent.ItemType<RedtideBrick>();
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Redtide Brick");
 			AddMapEntry(new Color(255, 100, 150), name);

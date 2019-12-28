@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Dusts
+namespace NightmaresTMod.Dusts
 {
 	public class NightmareDust : ModDust
 	{

@@ -1,7 +1,9 @@
+using NightmaresTMod.Placeables.Blocks.Ores;
+using NightmaresTMod.Tiles.Bars;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Materials.Bars
+namespace NightmaresTMod.Materials.Bars
 {
 	public class CelestiumBar : ModItem
 	{
@@ -24,7 +26,7 @@ namespace NightmaresMod.Items.Materials.Bars
 			item.autoReuse = true; // Do you want to torture people with clicking? Set to false
 			item.consumable = true; // Will consume the item when placed.
 			item.maxStack = 999; // The maximum number you can have of this item.
-			item.createTile = mod.TileType("CelestiumBarTile");
+			item.createTile = ModContent.TileType<CelestiumBarTile>();
 			item.useTurn = true; //I don't know what this does
 			item.placeStyle = 0; //Not sure what this does either
 		}
@@ -32,7 +34,7 @@ namespace NightmaresMod.Items.Materials.Bars
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("CelestiumOre"), 4);
+			recipe.AddIngredient(ModContent.ItemType<CelestiumOre>(), 4);
 			recipe.AddTile(412);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

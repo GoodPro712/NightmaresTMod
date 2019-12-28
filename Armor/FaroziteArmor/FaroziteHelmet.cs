@@ -1,8 +1,9 @@
+using NightmaresTMod.Materials.Bars;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Armor.FaroziteArmor
+namespace NightmaresTMod.Armor.FaroziteArmor
 {
 	[AutoloadEquip(EquipType.Head)]
 	public class FaroziteHelmet : ModItem
@@ -30,7 +31,7 @@ namespace NightmaresMod.Items.Armor.FaroziteArmor
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("FaroziteBar"), 9);
+			recipe.AddIngredient(ModContent.ItemType<FaroziteBar>(), 9);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

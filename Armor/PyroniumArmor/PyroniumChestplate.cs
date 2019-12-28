@@ -1,8 +1,9 @@
+using NightmaresTMod.Materials.Bars;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Armor.PyroniumArmor
+namespace NightmaresTMod.Armor.PyroniumArmor
 {
 	[AutoloadEquip(EquipType.Body)]
 	public class PyroniumChestplate : ModItem
@@ -38,7 +39,7 @@ namespace NightmaresMod.Items.Armor.PyroniumArmor
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("PyroniumBar"), 23);
+			recipe.AddIngredient(ModContent.ItemType<PyroniumBar>(), 23);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

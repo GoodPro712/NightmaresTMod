@@ -1,7 +1,8 @@
+using NightmaresTMod.Materials.Bars;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Items.Tools
+namespace NightmaresTMod.Tools
 {
 	public class FaroziteHamaxe : ModItem
 	{
@@ -31,20 +32,10 @@ namespace NightmaresMod.Items.Tools
 			item.axe = 165;
 		}
 
-		//Fix maybe?
-		/*
-        public override void OnHitNPC(int damage, float knockback, bool crit)
-        {
-            // Add Onfire buff to the NPC
-            // 60 frames = 1 second
-            target.AddBuff(BuffID.Burning, 18000); //5 minutes(?)
-        }
-        */
-
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("FaroziteBar"), 11);
+			recipe.AddIngredient(ModContent.ItemType<FaroziteBar>(), 11);
 			recipe.AddTile(412);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

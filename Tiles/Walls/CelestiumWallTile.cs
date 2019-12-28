@@ -1,16 +1,17 @@
 using Microsoft.Xna.Framework;
+using NightmaresTMod.Placeables.Walls;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace NightmaresMod.Tiles.Walls
+namespace NightmaresTMod.Tiles.Walls
 {
 	public class CelestiumWallTile : ModWall
 	{
 		public override void SetDefaults()
 		{
 			Main.wallHouse[Type] = true;
-			//dustType = mod.DustType("Celestium");
-			drop = mod.ItemType("CelestiumWall");
+			//dustType = ModContent.DustType<Celestium>();
+			drop = ModContent.ItemType<CelestiumWall>();
 			AddMapEntry(new Color(50, 0, 205));
 		}
 
