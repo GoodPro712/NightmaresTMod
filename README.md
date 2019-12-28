@@ -7,3 +7,4 @@ If you find any bugs, or need support, contact me on discord at https://discord.
 Discord: https://discord.gg/VrxSx4B
 Github: https://github.com/GoodPro712/NightmaresTmod
 Forum: https://forums.terraria.org/index.php?threads/my-w-i-p-mod-nightmares-tmod-is-now-on-tmodloader.81324/
+Old Discord: https://discord.gg/5v2Y3G
