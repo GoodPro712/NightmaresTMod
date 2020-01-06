@@ -1,4 +1,4 @@
 author = GoodPro712, Nightmare3711
-version = 1.0.2
+version = 1.0.3
 displayName = Nightmare's TMod
 homepage = https://github.com/GoodPro712/NightmaresTmod
