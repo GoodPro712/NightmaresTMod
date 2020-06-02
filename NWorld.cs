@@ -17,6 +17,7 @@ namespace NightmaresTMod
 			// The first step is an Ore. Most vanilla ores are generated in a step called "Shinies", so for maximum compatibility, we will also do this.
 			// First, we find out which step "Shinies" is.
 			int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
+
 			if (ShiniesIndex != -1)
 			{
 				// Next, we insert our step directly after the original "Shinies" step.
@@ -25,25 +26,6 @@ namespace NightmaresTMod
 				tasks.Insert(ShiniesIndex + 1, new PassLegacy("Redtide Ore", RedtideOre));
 				tasks.Insert(ShiniesIndex + 1, new PassLegacy("Pyronium Ore", PyroniumOre));
 			}
-
-			// This second step that we add will go after "Traps" and follows the same pattern.
-			/*int TrapsIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Traps"));
-            if (TrapsIndex != -1)
-            {
-                tasks.Insert(TrapsIndex + 1, new PassLegacy("Example Mod Traps", ExampleModTraps));
-            }*/
-
-			/*int LivingTreesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Living Trees"));
-            if (LivingTreesIndex != -1)
-            {
-                tasks.Insert(LivingTreesIndex + 1, new PassLegacy("Post Terrain", delegate (GenerationProgress progress)
-                {
-                    // We can inline the world generation code like this, but if exceptions happen within this code
-                    // the error messages are difficult to read, so making methods is better. This is called an anonymous method.
-                    progress.Message = "What is it Lassie, did Timmy fall down a well?";
-                    MakeWells();
-                }));
-            }*/
 		}
 
 		private void FaroziteOre(GenerationProgress progress)
@@ -104,10 +86,9 @@ namespace NightmaresTMod
 				// The inside of this for loop corresponds to one single splotch of our Ore.
 				// First, we randomly choose any coordinate in the world by choosing a random x and y value.
 				int x = WorldGen.genRand.Next(0, Main.maxTilesX);
-				int y = WorldGen.genRand.Next(2200, Main.maxTilesY); // WorldGen.worldSurfaceLow is actually the highest surface tile. In practice you might want to use WorldGen.rockLayer or other WorldGen values.
+				int y = WorldGen.genRand.Next((int)WorldGen.worldSurfaceLow, Main.maxTilesY); // WorldGen.worldSurfaceLow is actually the highest surface tile. In practice you might want to use WorldGen.rockLayer or other WorldGen values.
 
 				// Then, we call WorldGen.TileRunner with random "strength" and random "steps", as well as the Tile we wish to place. Feel free to experiment with strength and step to see the shape they generate.
-				Tile tile = Framing.GetTileSafely(x, y); // Alternately, we could check the tile already present in the coordinate we are interested. Wrapping WorldGen.TileRunner in the following condition would make the ore only generate in Snow.
 				WorldGen.TileRunner(x, y, WorldGen.genRand.Next(3, 4), WorldGen.genRand.Next(999, 1000), ModContent.TileType<PyroniumOreTile>(), false, 0f, 0f, false, true);
 			}
 		}
